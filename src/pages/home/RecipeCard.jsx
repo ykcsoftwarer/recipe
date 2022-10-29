@@ -1,24 +1,37 @@
-import React from "react";
-import { CardImg } from "react-bootstrap";
-import CardStyle, { Cards } from "./Home.styled";
+import React, { useState } from "react";
+import CardStyle, { Button, CardImg, Cards, CardTitle } from "./Home.styled";
+import { useNavigate } from "react-router-dom";
 
 const RecipeCard = ({ data }) => {
-  console.log("recipedata:", data);
+  const navigate = useNavigate();
+
+  // console.log("recipedata:", data);
+
   return (
-    <Cards>
-      {data.map((item, index) => {
-        const { recipe } = item;
-        return (
-          <CardStyle key={index}>
-            <h3>{recipe.label}</h3>
+    <>
+      <Cards>
+        {data.map((item, index) => {
+          const { recipe } = item;
+          return (
+            <CardStyle key={index}>
+              <CardTitle>{recipe.label}</CardTitle>
+              <div>
+                <CardImg src={recipe.image} alt="" />
+              </div>
 
-            <CardImg src={recipe.image} alt="" />
-
-            <button>View More</button>
-          </CardStyle>
-        );
-      })}
-    </Cards>
+              <Button
+                id={index}
+                onClick={(e) =>
+                  navigate("/details", { state: data[e.target.id] })
+                }
+              >
+                View More
+              </Button>
+            </CardStyle>
+          );
+        })}
+      </Cards>
+    </>
   );
 };
 
