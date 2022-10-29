@@ -1,16 +1,7 @@
-import React from 'react'
-import home from '../';
+import React from "react";
 
 const Details = () => {
-  return (
-    
-    <div>
-    <div><img src="" alt="" /></div>
-    <div></div>
+  return <div>Details</div>;
+};
 
-
-    </div>
-  )
-}
-
-export default Details
+export default Details;
