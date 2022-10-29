@@ -1,20 +1,20 @@
-import Footer from "./components/Footer";
-import Nav from "./components/Nav";
-import Contact from "./pages/Contact";
-import Home from "./pages/Home";
-import People from "./pages/People";
-import NotFound from "./pages/NotFound";
+import { BrowserRouter } from "react-router-dom";
+// import Navbar from "./components/navbar/Navbar";
+import AppRouter from "./router/AppRouter";
+
 
 function App() {
   return (
     <>
-      <Nav />
-      <Home />
-      <People />
-      <Contact />
-      <NotFound />
-      <Footer />
-    </>
+
+   
+    <BrowserRouter>
+    
+
+        <AppRouter/>
+
+    <BrowserRouter/>
+     </>
   );
 }
 
